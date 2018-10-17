@@ -1,24 +1,7 @@
-// ul.dogs>li.dog.dog$$*10
+extends layout
 
-ul.dogs
-  li.dog.dog01
-  li.dog.dog02
-  li.dog.dog03
-  li.dog.dog04
-  li.dog.dog05
-  li.dog.dog06
-  li.dog.dog07
-  li.dog.dog08
-  li.dog.dog09
-  li.dog.dog10  
+block header
+  h1 new header assigned
 
-.wrapper
-  - const upDog = dog.toUpperCase();
-  p.hello Helloo my dogs name is #{dog}
-  p.hello  #{dog.toUpperCase()};
-  span#yo Yo!!
-  img.dog(src="dog.jpg" alt=`${upDog}`)
-
-h2
-  | Hello
-  em How are you?
+block content
+  p Hello
