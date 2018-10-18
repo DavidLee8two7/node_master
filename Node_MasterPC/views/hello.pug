@@ -1,10 +1,4 @@
 extends layout
 
-block header
-  h1 new header assigned
-
 block content
-  p Hello
-
-  block footer
-  p I love me
+  h2 Sale ends #{h.moment().endOf('day').fromNow()}
