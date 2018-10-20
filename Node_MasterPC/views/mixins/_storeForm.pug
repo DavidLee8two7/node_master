@@ -4,7 +4,7 @@ mixin storeForm(store = {})
     input(type="text" name="name" value=store.name)
     label(for="description") Description
     textarea(name="description")= store.description
-    //- address, lng and lat
+    //- address, lng and lat (lng, lat on mongobd but lat, lng order for google map)
     label(for="address") Address
     input(type="text" id="address" name="location[address]" value=(store.location && store.location.address))
     label(for="lng") Address Lng
@@ -18,4 +18,4 @@ mixin storeForm(store = {})
         .tag.tag__choice
           input(type="checkbox" id=choice value=choice name="tags")
           label(for=choice) #{choice}
-    input(type="submit" value="save 🚀" class="button")
+    input(type="submit" value="save 🚀" class="button") 
