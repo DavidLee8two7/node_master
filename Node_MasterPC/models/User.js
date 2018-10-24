@@ -22,6 +22,10 @@ const userSchema = new Schema({
   }
 });
 
+userSchema.virtual('gravatar').get(function() {
+  return `https://qsf.fs.quoracdn.net/-3-images.new_grid.profile_pic_default_small.png-26-679bc670f786484c.png`;
+})
+
 userSchema.plugin(passportLocalMongoose, { usernameField: 'email' });
 userSchema.plugin(mongodbErrorHandler);
 
