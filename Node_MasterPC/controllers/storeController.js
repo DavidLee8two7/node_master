@@ -14,7 +14,7 @@ const multerOptions = {
             next({ message: 'That filetype isn\'t allowed!' }, false);
         }
     }
-}
+};
 
 exports.homePage = (req, res) => {
     res.render('index');
@@ -97,4 +97,23 @@ exports.getStoresByTag = async (req, res) => {
     const storesPromise = Store.find({ tags: tagQuery });
     const [tags, stores] = await Promise.all([tagsPromise, storesPromise]);
     res.render('tag', { tags, title: 'Tags', tag, stores });
+};
+
+exports.searchStores = async (req, res) => {
+    const stores = await Store
+    // first find stores that match
+    .find({
+        $text: {
+            $search: req.query.q
+        }
+    }, {
+        score: { $meta: 'textScore' }
+    })
+    // the sort them
+    .sort({
+        score: { $meta: 'textScore' }
+    })
+    // limit to only 5 results
+    .limit(5);
+    res.json(stores);
 };
