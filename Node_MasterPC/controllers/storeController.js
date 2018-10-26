@@ -46,7 +46,7 @@ exports.resize = async (req,  res, next) => {
 exports.createStore = async (req, res) => {
     req.body.author = req.user._id;
     const store = await (new Store(req.body)).save();
-    req.flash('success', `Successfully Created ${store.name}. Care to leave a review?`);
+    req.flash('success', `Successfully Created ${store.name}. Care to  leave a review?`);
     res.redirect(`/store/${store.slug}`);
 };
 
@@ -157,4 +157,9 @@ exports.getHearts = async (req, res) => {
         _id: { $in: req.user.hearts }
     });
     res.render('stores', { title: 'Hearted Stores', stores });
+};
+
+exports.getTopStores = async (req, res) => {
+   const stores = await Store.getTopStores();
+   res.render('topStores', { stores, title: `⭐ Top Stores` });
 };
