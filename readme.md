@@ -1,4 +1,4 @@
-Sorry this website is down for remodeling at the moment. Planned to be back online before Jan. 2019.
+Sorry this website is down for remodeling at the moment. Planned to be back online by the end of Jan. 2019.
 
 You can run it on your system with sample data as instructed below
 
