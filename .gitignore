@@ -3,3 +3,4 @@ variables.env
 .DS_Store
 .vscode/
 *.log
+variables.env.now
