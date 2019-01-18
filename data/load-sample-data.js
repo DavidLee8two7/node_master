@@ -32,11 +32,11 @@ async function loadData() {
     await Store.insertMany(stores);
     await Review.insertMany(reviews);
     await User.insertMany(users);
-    console.log("👍👍👍👍👍👍👍👍 Done!");
+    console.log("Loading is Done!");
     process.exit();
   } catch (e) {
     console.log(
-      "\n👎👎👎👎👎👎👎👎 Error! The Error info is below but if you are importing sample data make sure to drop the existing database first with.\n\n\t npm run blowitallaway\n\n\n"
+      "\nError! The Error info is below but if you are importing sample data make sure to drop the existing database first with.\n\n\t npm run deletesample\n\n\n"
     );
     console.log(e);
     process.exit();

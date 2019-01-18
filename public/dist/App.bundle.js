@@ -1040,22 +1040,21 @@ var _bling = __webpack_require__(1);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapOptions = {
-  center: { lat: 43.2, lng: -79.8 },
+  center: { lat: 33.81, lng: -117.9 },
   zoom: 10
 };
 
 function loadPlaces(map) {
-  var lat = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 43.2;
-  var lng = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : -79.8;
+  var lat = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 33.81;
+  var lng = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : -117.9;
 
-  _axios2.default.get('/api/stores/near?lat=' + lat + '&lng=' + lng).then(function (res) {
+  _axios2.default.get("/api/stores/near?lat=" + lat + "&lng=" + lng).then(function (res) {
     var places = res.data;
     if (!places.length) {
-      alert('no places found!');
+      alert("no places found!");
       return;
     }
 
-    // create a bounds
     var bounds = new google.maps.LatLngBounds();
     var infoWindow = new google.maps.InfoWindow();
 
@@ -1073,8 +1072,8 @@ function loadPlaces(map) {
 
     // when someone clicks on a marker, show the details of that place
     markers.forEach(function (marker) {
-      return marker.addListener('click', function () {
-        var html = '\n        <div class="popup">\n          <a href="/store/' + this.place.slug + '">\n            <img src="/uploads/' + (this.place.photo || 'store.png') + '" alt="' + this.place.name + '" />\n            <p>' + this.place.name + ' - ' + this.place.location.address + '</p>\n          </a>\n        </div>\n      ';
+      return marker.addListener("click", function () {
+        var html = "\n        <div class=\"popup\">\n          <a href=\"/store/" + this.place.slug + "\">\n            <img src=\"/uploads/" + (this.place.photo || "store.png") + "\" alt=\"" + this.place.name + "\" />\n            <p>" + this.place.name + " - " + this.place.location.address + "</p>\n          </a>\n        </div>\n      ";
         infoWindow.setContent(html);
         infoWindow.open(map, this);
       });
@@ -1088,13 +1087,13 @@ function loadPlaces(map) {
 
 function makeMap(mapDiv) {
   if (!mapDiv) return;
-  // make our map
+  // make the map
   var map = new google.maps.Map(mapDiv, mapOptions);
   loadPlaces(map);
 
   var input = (0, _bling.$)('[name="geolocate"]');
   var autocomplete = new google.maps.places.Autocomplete(input);
-  autocomplete.addListener('place_changed', function () {
+  autocomplete.addListener("place_changed", function () {
     var place = autocomplete.getPlace();
     loadPlaces(map, place.geometry.location.lat(), place.geometry.location.lng());
   });
