@@ -6,7 +6,7 @@ const fs = require("fs");
 
 exports.moment = require("moment");
 
-// Dump is a debugging function we can use to sort of "console.log" for the data
+// Dump is a debugging function that "console.log" for the data
 exports.dump = obj => JSON.stringify(obj, null, 2);
 
 exports.staticMap = ([lng, lat]) =>
