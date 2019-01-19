@@ -1,4 +1,4 @@
-You can run it on your system with sample data as instructed below
+Please run it on your system with sample data as instructed below
 
 ## Sample Data
 
