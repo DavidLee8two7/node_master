@@ -38,7 +38,7 @@ const uglify = new webpack.optimize.UglifyJsPlugin({
 
 const config = {
   entry: {
-    App: "./public/javascripts/delicious-app.js"
+    App: "./public/javascripts/kFood-app.js"
   },
   devtool: "source-map",
   output: {
