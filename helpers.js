@@ -1,12 +1,7 @@
-/*
-  This is a file of data and helper functions that we can expose and use in our templating function
-*/
-
 const fs = require("fs");
 
 exports.moment = require("moment");
 
-// Dump is a debugging function that "console.log" for the data
 exports.dump = obj => JSON.stringify(obj, null, 2);
 
 exports.staticMap = ([lng, lat]) =>
@@ -21,7 +16,7 @@ exports.siteName = `Korean Food Net`;
 exports.menu = [
   { slug: "/stores", title: "Stores", icon: "store" },
   { slug: "/tags", title: "Tags", icon: "tag" },
-  { slug: "/top", title: "Top", icon: "top" },
+  { slug: "/top", title: "Hot Trend", icon: "trendy" },
   { slug: "/add", title: "Add", icon: "add" },
   { slug: "/map", title: "Map", icon: "map" }
 ];

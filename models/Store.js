@@ -57,8 +57,8 @@ storeSchema.index({ location: "2dsphere" });
 
 storeSchema.pre("save", async function(next) {
   if (!this.isModified("name")) {
-    next(); // skip it
-    return; // stop this fuction from running
+    next();
+    return;
   }
   this.slug = slug(this.name);
   const slugRegEx = new RegExp(`^(${this.slug})((-[0-9]*$)?)$`, "i");
@@ -103,9 +103,9 @@ storeSchema.statics.getTopStores = function() {
 };
 
 storeSchema.virtual("reviews", {
-  ref: "Review", // what model to link?
-  localField: "_id", // which field on the store?
-  foreignField: "store" // which field on the review?
+  ref: "Review",
+  localField: "_id",
+  foreignField: "store"
 });
 
 function autopopulate(next) {

@@ -54,7 +54,7 @@ exports.createStore = async (req, res) => {
 
 exports.getStores = async (req, res) => {
   const page = req.params.page || 1;
-  const limit = 4;
+  const limit = 6;
   const skip = page * limit - limit;
 
   const storesPromise = Store.find()
@@ -70,7 +70,7 @@ exports.getStores = async (req, res) => {
   if (!stores.length && skip) {
     req.flash(
       "info",
-      `Hey! You asked for page ${page}. But that doesn't exist. So I put you on page ${pages}`
+      `You asked for page ${page}. But that doesn't exist. So I put you on page ${pages}`
     );
     res.redirect(`/stores/page/${pages}`);
     return;
@@ -100,7 +100,7 @@ exports.updateStore = async (req, res) => {
     "success",
     `Successfully updated <strong>${store.name}</stong>. <a href="/stores/${
       store.slug
-    }">View Store 🚣‍♂️</a>`
+    }">View Store</a>`
   );
   res.redirect(`/stores/${store._id}/edit`);
 };
@@ -156,7 +156,7 @@ exports.mapStores = async (req, res) => {
 
   const stores = await Store.find(q)
     .select("slug name description location photo")
-    .limit(10); // or select('-photo -name') to subtract
+    .limit(10);
   res.json(stores);
 };
 

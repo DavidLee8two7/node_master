@@ -3,12 +3,12 @@ html {
   font-size: 10px; }
 
 body {
-  background: #262161;
+  background: #27216b;
   background: #efefef; }
   body:before {
-    content: '';
+    content: "";
     display: block;
-    background: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%);
+    background: linear-gradient(90deg, #0441e9 10%, #db110b 100%);
     height: 10px;
     width: 100%; }
 
@@ -19,10 +19,23 @@ body {
     .inner {
       padding: 2rem; } }
 
+.footer {
+  width: 100%;
+  height: 10rem;
+  background: #303030;
+  color: white; }
+  .footer p {
+    margin-left: 3rem;
+    padding: 2rem;
+    font-size: 2.4rem;
+    font-weight: 600; }
+
 html {
   box-sizing: border-box; }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: inherit; }
 
 img {
@@ -432,22 +445,22 @@ template {
 [hidden] {
   display: none; }
 
-@font-face {
-  font-family: 'panama';
-  src: url("/fonts/panama-bold-webfont.woff2") format("woff2"), url("/fonts/panama-bold-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal; }
-
 html {
   font-size: 10px; }
 
 body {
   font-size: 1.5rem;
-  color: #303030; }
+  color: #303030;
+  font-family: "Roboto", sans-serif; }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-size: 5rem;
-  font-family: 'Panama';
+  font-family: "Anton", sans-serif;
   font-weight: 600;
   letter-spacing: -1px; }
 
@@ -456,7 +469,7 @@ a {
   color: #303030; }
 
 p a {
-  border-bottom: 2px solid #FFC40E; }
+  border-bottom: 2px solid #ffc40e; }
 
 p {
   line-height: 2;
@@ -476,7 +489,7 @@ p {
   .title--long {
     font-size: 30px; }
   .title:before {
-    content: '';
+    content: "";
     width: 50px;
     left: 0;
     top: 0;
@@ -487,8 +500,9 @@ p {
     -ms-transform: skew(-5deg);
         transform: skew(-5deg); }
   .title a {
+    padding: 0 1rem;
     border-bottom: 0;
-    background-image: linear-gradient(to right, rgba(255, 196, 14, 0.8) 100%, rgba(255, 196, 14, 0.8) 50%); }
+    background-image: linear-gradient(to right, rgba(10, 206, 10, 0.8) 100%, rgba(10, 206, 10, 0.8) 50%); }
 
 .title--single {
   max-width: 600px;
@@ -496,11 +510,13 @@ p {
   font-size: 10rem;
   text-align: center; }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   padding: 10px;
   border: 1px solid #e6e6e6; }
-  input.input--error, textarea.input--error {
+  input.input--error,
+  textarea.input--error {
     border-color: red; }
 
 label {
@@ -510,7 +526,7 @@ label {
 .form {
   background: white;
   padding: 2rem;
-  box-shadow: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%); }
+  box-shadow: linear-gradient(90deg, #0441e9 10%, #db110b 100%); }
   .form + .form {
     margin-top: 4rem; }
   .form h2 {
@@ -564,7 +580,7 @@ label {
   border-radius: 3px;
   display: -ms-flexbox;
   display: flex;
-  animation: slideIn forwards .1s ease-in-out 2;
+  animation: slideIn forwards 0.1s ease-in-out 2;
   animation-timing-function: cubic-bezier(0.01, 1.68, 0.58, 1); }
   .flash + .flash {
     animation-delay: 0.55s; }
@@ -577,9 +593,9 @@ label {
     background: none;
     border: 0; }
     .flash__remove:hover {
-      color: #FFC40E; }
+      color: #ffc40e; }
   .flash:after {
-    content: '';
+    content: "";
     display: block;
     background: white;
     position: absolute;
@@ -639,10 +655,12 @@ label {
       transition: all 0.2s;
       fill: white;
       margin-bottom: 1rem; }
+    .nav__link img {
+      max-height: 7rem; }
     .nav__link:hover, .nav__link--active {
       border-bottom-color: rgba(0, 0, 0, 0.2);
       border-right-color: rgba(0, 0, 0, 0.05);
-      background: linear-gradient(90deg, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%) fixed; }
+      background: linear-gradient(90deg, #0441e9 0%, #db110b 100%) fixed; }
       .nav__link:hover svg, .nav__link--active svg {
         -ms-transform: scale(1.2);
             transform: scale(1.2); }
@@ -696,7 +714,7 @@ label {
     .nav__link--logo svg {
       width: 100%; }
   .heart-count:before {
-    content: '\2665\FE0F';
+    content: "\2665\FE0F";
     margin-right: 1rem; } }
 
 .table {
@@ -740,14 +758,15 @@ label {
 .store__actions {
   position: relative;
   z-index: 2;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid white;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 0 rgba(255, 255, 255, 0.2);
   margin-bottom: 50px;
   padding-top: 10px;
   padding-bottom: 20px;
   display: -ms-flexbox;
   display: flex;
-  color: white;
+  color: red;
+  font-weight: 600;
   -ms-flex-align: center;
       align-items: center;
   -ms-flex-pack: distribute;
@@ -767,13 +786,12 @@ label {
   text-align: right; }
   .store__hero:before {
     display: block;
-    content: '';
+    content: "";
     position: absolute;
     height: 100%;
     width: 100%;
     top: 0;
     right: 0;
-    background: linear-gradient(45deg, #05b3d6 0%, rgba(5, 179, 214, 0) 70%), linear-gradient(135deg, #0958ec 10%, rgba(9, 88, 236, 0) 80%), linear-gradient(225deg, #d209ec 10%, rgba(210, 9, 236, 0) 80%), linear-gradient(315deg, #05e129 100%, rgba(5, 225, 41, 0) 70%);
     opacity: 0.6;
     z-index: 1;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
@@ -819,9 +837,9 @@ label {
         background: #e6e6e6;
         padding: 1rem 1rem 1rem 4rem; }
       .tag__choice input:checked + label {
-        background: #FFC40E; }
+        background: #ffc40e; }
   .tag__link {
-    background: #FFC40E;
+    background: #ffc40e;
     color: #303030;
     display: -ms-flexbox;
     display: flex;
@@ -829,7 +847,7 @@ label {
     -webkit-clip-path: polygon(10px 0%, 100% 1%, 100% 100%, 10px 100%, 0% 50%);
             clip-path: polygon(10px 0%, 100% 1%, 100% 100%, 10px 100%, 0% 50%); }
     .tag__link--active {
-      background: #827cd2; }
+      background: #8780d8; }
       .tag__link--active .tag__text {
         color: white; }
   .tag__text {
@@ -857,13 +875,12 @@ label {
           clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), 0% 100%); }
   .single__hero:before {
     display: block;
-    content: '';
+    content: "";
     position: absolute;
     height: 100%;
     width: 100%;
     top: 0;
     right: 0;
-    background: linear-gradient(45deg, #05b3d6 0%, rgba(5, 179, 214, 0) 70%), linear-gradient(135deg, #0958ec 10%, rgba(9, 88, 236, 0) 80%), linear-gradient(225deg, #d209ec 10%, rgba(210, 9, 236, 0) 80%), linear-gradient(315deg, #05e129 100%, rgba(5, 225, 41, 0) 70%);
     opacity: 0.6;
     z-index: 1;
     -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 2vw), 0% 100%);
@@ -910,7 +927,7 @@ label {
   outline: 0;
   position: relative; }
   .heart__button:after {
-    content: '\2665\FE0F';
+    content: "\2665\FE0F";
     font-size: 20px;
     position: absolute;
     opacity: 0;
@@ -953,9 +970,9 @@ label {
   .review:before {
     width: 5px;
     left: 0;
-    content: '';
+    content: "";
     display: block;
-    background: linear-gradient(0, #48ded4 0%, #a026bf 20%, #e82c75 60%, #FFC40E 85%, #48ded4 95%);
+    background: linear-gradient(0, #0441e9 10%, #db110b 100%);
     position: absolute;
     height: 100%;
     background-attachment: fixed; }
@@ -988,15 +1005,12 @@ label {
     font-size: 1.2rem;
     color: #999999; }
   .review__stars {
-    color: #FFC40E; }
+    color: #ffc40e; }
   .review__body {
     padding: 2rem; }
   .review p {
     white-space: pre-wrap; }
 
-/*
-  Reviewer Form
- */
 .reviewer {
   position: relative;
   box-shadow: 0 0px 10px rgba(0, 0, 0, 0.2);
@@ -1009,15 +1023,11 @@ label {
     .reviewer__stars input {
       display: none; }
       .reviewer__stars input:checked ~ label {
-        color: #FFC40E; }
+        color: #ffc40e; }
       .reviewer__stars input + label {
-        font-size: 0;
-        /* These are in the opposite DOM order
-           re-order them to be visually in normal order
-           This is fine for accessibility because our labels have for()
-         */ }
+        font-size: 0; }
         .reviewer__stars input + label:before {
-          content: '\2605';
+          content: "\2605";
           font-size: 2rem; }
         .reviewer__stars input + label[for="star5"] {
           -ms-flex-order: 5;
@@ -1034,7 +1044,8 @@ label {
         .reviewer__stars input + label[for="star1"] {
           -ms-flex-order: 1;
               order: 1; }
-        .reviewer__stars input + label:hover, .reviewer__stars input + label:hover ~ label {
+        .reviewer__stars input + label:hover,
+        .reviewer__stars input + label:hover ~ label {
           color: #ffdd74; }
   .reviewer textarea {
     border: 0;
@@ -1069,14 +1080,14 @@ label {
     padding: 1rem 3rem 1rem 1rem; }
     .pagination__next a:after {
       margin-left: 1rem;
-      content: '\2192'; }
+      content: "\2192"; }
   .pagination__prev {
     -ms-flex: 0 0 auto;
         flex: 0 0 auto;
     padding: 1rem 1rem 1rem 3rem; }
     .pagination__prev a:before {
       margin-right: 1rem;
-      content: '\2190'; }
+      content: "\2190"; }
   .pagination__text {
     -ms-flex: 3 0 auto;
         flex: 3 0 auto;
@@ -1102,9 +1113,9 @@ label {
 
 .button {
   border: 0;
-  background: #FFC40E;
+  background: #ffc40e;
   color: #303030;
-  font-family: 'Panama';
+  font-family: "Panama";
   font-weight: 600; }
 
 .avatar {

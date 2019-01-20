@@ -26,7 +26,6 @@ function loadPlaces(map, lat = 33.81, lng = -117.9) {
       return marker;
     });
 
-    // when someone clicks on a marker, show the details of that place
     markers.forEach(marker =>
       marker.addListener("click", function() {
         const html = `
@@ -44,7 +43,6 @@ function loadPlaces(map, lat = 33.81, lng = -117.9) {
       })
     );
 
-    // then zoom the map to fit all the markers perfectly
     map.setCenter(bounds.getCenter());
     map.fitBounds(bounds);
   });
@@ -52,7 +50,6 @@ function loadPlaces(map, lat = 33.81, lng = -117.9) {
 
 function makeMap(mapDiv) {
   if (!mapDiv) return;
-  // make the map
   const map = new google.maps.Map(mapDiv, mapOptions);
   loadPlaces(map);
 
