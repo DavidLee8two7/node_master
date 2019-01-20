@@ -43,7 +43,7 @@
       svg {
         transform: scale(1.2);
       }
-      background: linear-gradient(90deg, #0441e9 0%, #db110b 100%) fixed;
+      background: $yellow;
     }
     &--logo {
       &:hover {
