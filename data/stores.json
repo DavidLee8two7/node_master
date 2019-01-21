@@ -1,16 +1,16 @@
 [
   {
     "_id": "58c039938060197ca0b52d4d",
-    "slug": "olive-oil",
-    "name": "Olive Oil",
-    "description": "Friendly atmosphere. Great selection of local brews. ",
+    "slug": "han-yang",
+    "name": "Han Yang",
+    "description": "Friendly atmosphere. Great selection of local stew place.",
     "author": "58c039018060197ca0b52d4c",
     "photo": "a10ca916-af2a-4a98-96a1-3e320df006f9.jpeg",
     "tags": ["Wifi", "Open Late", "Vega", "Licensed"],
     "created": "2017-03-08T17:04:19.860Z",
     "location": {
-      "address": "Hamilton, ON, Canada",
-      "coordinates": [-79.87110239999998, 43.2557206],
+      "address": "Buena Park, CA, USA",
+      "coordinates": [-118.0078168, 33.85928],
       "type": "Point"
     }
   },

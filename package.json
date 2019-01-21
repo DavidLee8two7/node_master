@@ -1,9 +1,12 @@
 {
-  "name": "node_masterpc",
+  "name": "korean-food-network",
   "version": "0.0.0",
   "private": false,
   "engines": {
     "node": ">= 7.6.0"
+  },
+  "now": {
+    "dotenv": "variables.env.now"
   },
   "scripts": {
     "start": "node ./start.js",

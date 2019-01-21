@@ -379,8 +379,6 @@ module.exports = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-// based on https://gist.github.com/paulirish/12fb951a8b893a454b32
-
 var $ = document.querySelector.bind(document);
 var $$ = document.querySelectorAll.bind(document);
 
@@ -963,16 +961,16 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 function autocomplete(input, latInput, lngInput) {
-  if (!input) return; // skip this fn from running if there is no input on the page
+  if (!input) return;
   var dropdown = new google.maps.places.Autocomplete(input);
 
-  dropdown.addListener('place_changed', function () {
+  dropdown.addListener("place_changed", function () {
     var place = dropdown.getPlace();
     latInput.value = place.geometry.location.lat();
     lngInput.value = place.geometry.location.lng();
   });
 
-  input.on('keydown', function (e) {
+  input.on("keydown", function (e) {
     if (e.keyCode === 13) e.preventDefault();
   });
 }
@@ -1002,15 +1000,15 @@ function ajaxHeart(e) {
   var _this = this;
 
   e.preventDefault();
-  console.log('HEART ITTT!!!!!!!');
+  console.log("HEART IT!");
   console.log(this);
   _axios2.default.post(this.action).then(function (res) {
-    var isHearted = _this.heart.classList.toggle('heart__button--hearted');
-    (0, _bling.$)('.heart-count').textContent = res.data.hearts.length;
+    var isHearted = _this.heart.classList.toggle("heart__button--hearted");
+    (0, _bling.$)(".heart-count").textContent = res.data.hearts.length;
     if (isHearted) {
-      _this.heart.classList.add('heart__button--float');
+      _this.heart.classList.add("heart__button--float");
       setTimeout(function () {
-        return _this.heart.classList.remove('heart__button--float');
+        return _this.heart.classList.remove("heart__button--float");
       }, 2500);
     }
   }).catch(console.error);
@@ -1040,22 +1038,21 @@ var _bling = __webpack_require__(1);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapOptions = {
-  center: { lat: 43.2, lng: -79.8 },
+  center: { lat: 33.81, lng: -117.9 },
   zoom: 10
 };
 
 function loadPlaces(map) {
-  var lat = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 43.2;
-  var lng = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : -79.8;
+  var lat = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 33.81;
+  var lng = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : -117.9;
 
-  _axios2.default.get('/api/stores/near?lat=' + lat + '&lng=' + lng).then(function (res) {
+  _axios2.default.get("/api/stores/near?lat=" + lat + "&lng=" + lng).then(function (res) {
     var places = res.data;
     if (!places.length) {
-      alert('no places found!');
+      alert("no places found!");
       return;
     }
 
-    // create a bounds
     var bounds = new google.maps.LatLngBounds();
     var infoWindow = new google.maps.InfoWindow();
 
@@ -1071,16 +1068,14 @@ function loadPlaces(map) {
       return marker;
     });
 
-    // when someone clicks on a marker, show the details of that place
     markers.forEach(function (marker) {
-      return marker.addListener('click', function () {
-        var html = '\n        <div class="popup">\n          <a href="/store/' + this.place.slug + '">\n            <img src="/uploads/' + (this.place.photo || 'store.png') + '" alt="' + this.place.name + '" />\n            <p>' + this.place.name + ' - ' + this.place.location.address + '</p>\n          </a>\n        </div>\n      ';
+      return marker.addListener("click", function () {
+        var html = "\n        <div class=\"popup\">\n          <a href=\"/store/" + this.place.slug + "\">\n            <img src=\"/uploads/" + (this.place.photo || "store.png") + "\" alt=\"" + this.place.name + "\" />\n            <p>" + this.place.name + " - " + this.place.location.address + "</p>\n          </a>\n        </div>\n      ";
         infoWindow.setContent(html);
         infoWindow.open(map, this);
       });
     });
 
-    // then zoom the map to fit all the markers perfectly
     map.setCenter(bounds.getCenter());
     map.fitBounds(bounds);
   });
@@ -1088,13 +1083,12 @@ function loadPlaces(map) {
 
 function makeMap(mapDiv) {
   if (!mapDiv) return;
-  // make our map
   var map = new google.maps.Map(mapDiv, mapOptions);
   loadPlaces(map);
 
   var input = (0, _bling.$)('[name="geolocate"]');
   var autocomplete = new google.maps.places.Autocomplete(input);
-  autocomplete.addListener('place_changed', function () {
+  autocomplete.addListener("place_changed", function () {
     var place = autocomplete.getPlace();
     loadPlaces(map, place.geometry.location.lat(), place.geometry.location.lng());
   });
@@ -1125,50 +1119,45 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function searchResultsHTML(stores) {
   return stores.map(function (store) {
-    return '\n      <a href="/store/' + store.slug + '" class="search__result">\n        <strong>' + store.name + '</strong>\n      </a>\n    ';
-  }).join('');
+    return "\n      <a href=\"/store/" + store.slug + "\" class=\"search__result\">\n        <strong>" + store.name + "</strong>\n      </a>\n    ";
+  }).join("");
 }
 
 function typeAhead(search) {
   if (!search) return;
 
   var searchInput = search.querySelector('input[name="search"]');
-  var searchResults = search.querySelector('.search__results');
+  var searchResults = search.querySelector(".search__results");
 
-  searchInput.on('input', function () {
+  searchInput.on("input", function () {
     var _this = this;
 
-    // if there is no value, quit it!
     if (!this.value) {
-      searchResults.style.display = 'none';
-      return; // stop!
+      searchResults.style.display = "none";
+      return;
     }
 
-    // show the search results!
-    searchResults.style.display = 'block';
+    searchResults.style.display = "block";
 
-    _axios2.default.get('/api/search?q=' + this.value).then(function (res) {
+    _axios2.default.get("/api/search?q=" + this.value).then(function (res) {
       if (res.data.length) {
         searchResults.innerHTML = _dompurify2.default.sanitize(searchResultsHTML(res.data));
         return;
       }
-      // them them nothign cam back
-      searchResults.innerHTML = _dompurify2.default.sanitize('<div class="search__result">No results for ' + _this.value + ' found!</div>');
+      searchResults.innerHTML = _dompurify2.default.sanitize("<div class=\"search__result\">No results for " + _this.value + " found!</div>");
     }).catch(function (err) {
       console.error(err);
     });
   });
 
-  // handle keyboard inputs
-  searchInput.on('keyup', function (e) {
-    // if they aren't pressing up, down or enter, who cares!
+  searchInput.on("keyup", function (e) {
     if (![38, 40, 13].includes(e.keyCode)) {
-      return; // nah
+      return;
     }
 
-    var activeClass = 'search__result--active';
-    var current = search.querySelector('.' + activeClass);
-    var items = search.querySelectorAll('.search__result');
+    var activeClass = "search__result--active";
+    var current = search.querySelector("." + activeClass);
+    var items = search.querySelectorAll(".search__result");
     var next = void 0;
     if (e.keyCode === 40 && current) {
       next = current.nextElementSibling || items[0];
@@ -1179,7 +1168,7 @@ function typeAhead(search) {
     } else if (e.keyCode === 38) {
       next = items[items.length - 1];
     } else if (e.keyCode === 13 && current.href) {
-      console.log('Changing Pages!');
+      console.log("Changing Pages!");
       console.log(current);
       window.location === current.href;
       return;

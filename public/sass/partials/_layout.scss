@@ -4,9 +4,9 @@ html {
 
 body {
   background: $purple;
-  background:#efefef;
+  background: #efefef;
   &:before {
-    content: '';
+    content: "";
     display: block;
     background: $grad;
     height: 10px;
@@ -15,9 +15,22 @@ body {
 }
 
 .inner {
-  max-width:900px;
+  max-width: 900px;
   margin: 0 auto;
   @media all and (max-width: 900px) {
     padding: 2rem;
+  }
+}
+
+.footer {
+  width: 100%;
+  height: 10rem;
+  background: $black;
+  color: white;
+  p {
+    margin-left: 3rem;
+    padding: 2rem;
+    font-size: 2.4rem;
+    font-weight: 600;
   }
 }

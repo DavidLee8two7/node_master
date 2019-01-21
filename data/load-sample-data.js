@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 mongoose.connect(process.env.DATABASE);
 mongoose.Promise = global.Promise;
 
-// import all of our sample data models
 const Store = require("../models/Store");
 const Review = require("../models/Review");
 const User = require("../models/User");
@@ -17,7 +16,7 @@ const reviews = JSON.parse(
 const users = JSON.parse(fs.readFileSync(__dirname + "/users.json", "utf-8"));
 
 async function deleteData() {
-  console.log("😢😢 Goodbye Data...");
+  console.log("Deleting Data...");
   await Store.remove();
   await Review.remove();
   await User.remove();
@@ -32,11 +31,11 @@ async function loadData() {
     await Store.insertMany(stores);
     await Review.insertMany(reviews);
     await User.insertMany(users);
-    console.log("👍👍👍👍👍👍👍👍 Done!");
+    console.log("Loading is Done!");
     process.exit();
   } catch (e) {
     console.log(
-      "\n👎👎👎👎👎👎👎👎 Error! The Error info is below but if you are importing sample data make sure to drop the existing database first with.\n\n\t npm run blowitallaway\n\n\n"
+      "\nError! The Error info is below but if you are importing sample data make sure to drop the existing database first with.\n\n\t npm run deletesample\n\n\n"
     );
     console.log(e);
     process.exit();
