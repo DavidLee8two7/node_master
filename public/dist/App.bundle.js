@@ -1150,7 +1150,6 @@ function typeAhead(search) {
     });
   });
 
-  // handle keyboard inputs
   searchInput.on("keyup", function (e) {
     if (![38, 40, 13].includes(e.keyCode)) {
       return;
