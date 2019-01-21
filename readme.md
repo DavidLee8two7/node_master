@@ -1,6 +1,6 @@
 This web app has been deployed on Now(Zeit) :
 
-https://korean-food-network-mojajxwmez.now.sh/
+https://korean-food-network-cpvkitibkk.now.sh/
 
 Please run it on your system with sample data as instructed below
 
