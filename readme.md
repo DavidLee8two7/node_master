@@ -1,10 +1,7 @@
-This web app has been deployed on Now(Zeit) :
-
+## Yelp for Korean food<br>
 https://korean-food-network-cpvkitibkk.now.sh/
 
-Please run it on your system with sample data as instructed below
-
-## Sample Data
+## `Sample Data`
 
 To load sample data, run the following command in your terminal:
 
@@ -16,4 +13,3 @@ If you have previously loaded in this data, you can wipe your database 100% clea
 
 ```bash
 npm run deletesample
-```
