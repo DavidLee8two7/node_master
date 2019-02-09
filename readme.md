@@ -1,4 +1,4 @@
-## Yelp for Korean food<br>
+## Restaurant Trends and Menu Search App<br>
 https://korean-food-network-cpvkitibkk.now.sh/
 
 ## `Sample Data`
