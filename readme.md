@@ -14,5 +14,6 @@ If you have previously loaded in this data, you can wipe your database 100% clea
 ```bash
 npm run deletesample
 
-```Description
+Description
+
 Trends in the culinary world are constantly shifting to reflect the ever-changing interests and needs of people. Keeping up with these trends is important to restaurant owners, chefs, and really anyone working in the foodservice industry. This app will help boost local business who are in the network.
